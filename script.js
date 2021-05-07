@@ -107,3 +107,4 @@ botaoApagarCompletadas.addEventListener('click',function () {
         listaTarefas.removeChild(tarefasCompletadas[i]);
     }
 });
+
