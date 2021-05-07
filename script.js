@@ -91,11 +91,19 @@ listaTarefas.addEventListener('dblclick', function (e) {
 //     });
 // }
 
-// limpar lista
+// apagar lista
 let botaoApagarLista = document.getElementById('apaga-tudo');
 botaoApagarLista.addEventListener('click',function () {
     let tarefas = document.querySelectorAll('.tarefa');
     for (let i = 0; i < tarefas.length; i += 1) {
         listaTarefas.removeChild(tarefas[i]);
+    }
+});
+// apagar tarefas completadas
+let botaoApagarCompletadas = document.getElementById('remover-finalizados');
+botaoApagarCompletadas.addEventListener('click',function () {
+    let tarefasCompletadas = document.querySelectorAll('.completed');
+    for (let i = 0; i < tarefasCompletadas.length; i += 1) {
+        listaTarefas.removeChild(tarefasCompletadas[i]);
     }
 });
