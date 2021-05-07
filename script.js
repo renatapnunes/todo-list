@@ -90,3 +90,12 @@ listaTarefas.addEventListener('dblclick', function (e) {
 //         }
 //     });
 // }
+
+// limpar lista
+let botaoApagarLista = document.getElementById('apaga-tudo');
+botaoApagarLista.addEventListener('click',function () {
+    let tarefas = document.querySelectorAll('.tarefa');
+    for (let i = 0; i < tarefas.length; i += 1) {
+        listaTarefas.removeChild(tarefas[i]);
+    }
+});
