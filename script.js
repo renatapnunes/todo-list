@@ -69,3 +69,24 @@ listaTarefas.addEventListener('click', function (e) {
         e.target.style.backgroundColor = 'rgb(128,128,128)';
     }
 });
+// tarefa completada
+listaTarefas.addEventListener('dblclick', function (e) {
+    if (e.target.className === 'tarefa completed') {
+        e.target.className = 'tarefa';
+    } else {
+        e.target.className = 'tarefa completed';
+    }
+});
+
+// tarefa completada
+// let tarefas = document.getElementsByClassName('tarefa');
+// for (let i = 0; i < tarefas.length; i += 1) {
+//     let tarefa = tarefas [i];
+//     tarefa.addEventListener('dblclick', function (e) {
+//         if (e.target.className === 'tarefa completed') {
+//             e.target.className = 'tarefa';
+//         } else {
+//             e.target.className = 'tarefa completed';
+//         }
+//     });
+// }
