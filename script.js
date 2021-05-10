@@ -84,8 +84,8 @@ listaTarefas.addEventListener('click', function (e) {
     for (let i = 0; i < tarefas.length; i += 1) {
         tarefas[i].style.backgroundColor = 'rgb(99, 98, 98)';
     }
-    if (e.target.className === 'tarefa') {
-        e.target.style.backgroundColor = 'rgb(128,128,128)';
+    if (e.target.className === 'tarefa' || e.target.className === 'tarefa completed') {
+        e.target.style.backgroundColor = 'rgb(128, 128, 128)';
     }
 });
 // tarefa completada
@@ -180,7 +180,6 @@ botaoSalvar.addEventListener('click',function () {
 window.onload = function () {
     if (localStorage.length !== 0) {
         let stringInfoSalva = localStorage.getItem('infoLista');
-        console.log(stringInfoSalva);
         let arrayInfoSalva = JSON.parse(stringInfoSalva);
         for (let i = 0; i < arrayInfoSalva.length; i += 1) {
             let elementoItemLista = document.createElement('li');
@@ -191,3 +190,81 @@ window.onload = function () {
         }
     }
 }
+
+// ---------------------------------------- IDEIAS --------------------------------
+
+//fazendo com que cada item da lista seja um objeto com informações de text,
+//background e class e salvando cada objeto dentro de um array,
+//esse array pode ser acessado por posição e assim seus dados pordem ser invertidos
+
+// mover tarefa para cima
+let botaoMoverCima = document.getElementById('mover-cima');
+botaoMoverCima.addEventListener('click', function () {
+    let tarefas = document.querySelectorAll('.tarefa');
+    for (let i = 0; i < tarefas.length; i += 1) {
+        let corBg = tarefas[i].style.backgroundColor;
+        console.log(corBg);
+        if (corBg === 'rgb(128, 128, 128)') {
+            if (i !== 0) {
+                let tarefaSelecionada = tarefas[i];
+                let anteriorTarefaSelecionada = tarefaSelecionada.previousElementSibling;
+                let objInfo = {};
+                console.log(objInfo);
+                objInfo = {
+                    valorSelecionada: tarefaSelecionada.innerText,
+                    classeSelecionada: tarefaSelecionada.className,
+                    valorAnterior: anteriorTarefaSelecionada.innerText,
+                    classeAnterior: anteriorTarefaSelecionada.className
+                }
+                console.log(objInfo);
+                tarefaSelecionada.innerText = objInfo.valorAnterior;
+                tarefaSelecionada.className = objInfo.classeAnterior;
+                tarefaSelecionada.style.backgroundColor = 'rgb(99, 98, 98)';
+                anteriorTarefaSelecionada.innerText = objInfo.valorSelecionada;
+                anteriorTarefaSelecionada.className = objInfo.classeSelecionada;
+                anteriorTarefaSelecionada.style.backgroundColor = 'rgb(128,128,128)';
+                console.log(tarefaSelecionada);
+                console.log(anteriorTarefaSelecionada);
+            } else {
+                alert('Esta tarefa já ocupa a primeira posição da lista');
+            }
+        }  
+    }
+    console.log(document.querySelectorAll('.tarefa'));
+});
+
+// mover tarefa para baixo
+let botaoMoverBaixo = document.getElementById('mover-baixo');
+botaoMoverBaixo.addEventListener('click', function () {
+    let tarefas = document.querySelectorAll('.tarefa');
+    for (let i = tarefas.length - 1; i >= 0; i -= 1) {
+        let corBg = tarefas[i].style.backgroundColor;
+        console.log(corBg);
+        if (corBg === 'rgb(128, 128, 128)') {
+            if (i !== tarefas.length - 1) {
+                let tarefaSelecionada = tarefas[i];
+                let posteriorTarefaSelecionada = tarefaSelecionada.nextElementSibling;
+                let objInfoMoverBaixo = {};
+                console.log(objInfoMoverBaixo);
+                objInfoMoverBaixo = {
+                    valorSelecionada: tarefaSelecionada.innerText,
+                    classeSelecionada: tarefaSelecionada.className,
+                    valorPosterior: posteriorTarefaSelecionada.innerText,
+                    classePosterior: posteriorTarefaSelecionada.className
+                }
+                console.log(objInfoMoverBaixo);
+                tarefaSelecionada.innerText = objInfoMoverBaixo.valorPosterior;
+                tarefaSelecionada.className = objInfoMoverBaixo.classePosterior;
+                tarefaSelecionada.style.backgroundColor = 'rgb(99, 98, 98)';
+                posteriorTarefaSelecionada.innerText = objInfoMoverBaixo.valorSelecionada;
+                posteriorTarefaSelecionada.className = objInfoMoverBaixo.classeSelecionada;
+                posteriorTarefaSelecionada.style.backgroundColor = 'rgb(128,128,128)';
+                console.log(tarefaSelecionada);
+                console.log(posteriorTarefaSelecionada);
+            } else {
+                alert('Esta tarefa já ocupa a última posição da lista');
+            }
+        }
+    }
+    console.log(document.querySelectorAll('.tarefa'));
+});
