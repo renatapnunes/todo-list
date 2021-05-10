@@ -268,3 +268,15 @@ botaoMoverBaixo.addEventListener('click', function () {
     }
     console.log(document.querySelectorAll('.tarefa'));
 });
+
+// apagar tarefa selecionada
+let botaoApagarSelecionada = document.getElementById('remover-selecionado');
+botaoApagarSelecionada.addEventListener('click', function () {
+    let tarefas = document.querySelectorAll('.tarefa');
+    for (let i = 0; i < tarefas.length; i += 1) {
+        let corBg = tarefas[i].style.backgroundColor;
+        if (corBg === 'rgb(128, 128, 128)') {
+            listaTarefas.removeChild(tarefas[i]);
+        }
+    }
+});
