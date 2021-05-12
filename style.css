@@ -4,9 +4,9 @@ body {
     background: linear-gradient(to left bottom, rgb(38, 93, 182), rgb(204, 82, 78));
 }
 #imagem-cerebro {
-    height: 550px;
+    height: 350px;
     position: absolute;
-    top: 200px;
+    top: 300px;
     right: 5px;
 }
 section {
@@ -22,6 +22,7 @@ header {
     font-size: 70px;
     text-transform: uppercase;
     text-shadow: 5px 5px 1px rgb(188, 186, 214);
+    text-align: center;
 }
 #conteiner {
     display: flex;
@@ -36,7 +37,7 @@ header {
 ol {
     color: rgb(19, 7, 185);
     font-family: 'Pacifico', cursive;
-    font-size: 26px;
+    font-size: 24px;
     margin-left: 20px;
 }
 li:hover {
@@ -50,15 +51,15 @@ li:hover {
     align-items: center;
     flex-direction: column;
     margin-top: 50px;
-    margin-left: 30px;
+    margin-left: 10px;
 }
 .botao {
     padding: 5px 10px;
-    border-radius: 30px;
+    border-radius: 18px;
     color: rgb(255, 255, 255);
     font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 20px;
 }
 input {
@@ -82,7 +83,8 @@ input:focus {
     font-style: oblique;
 }
 .imagem-setas {
-    height: 15px;
+    height: 12px;
+    margin-top: 5px;
     padding: 2px;
 }
 p {
@@ -96,6 +98,7 @@ p {
 #funcionamento {
     color: rgb(255, 255, 255);
     font-family: 5px;
+    text-align: center;
 }
 #botoes div:nth-of-type(1), div:nth-of-type(2), div:nth-of-type(3), div:nth-of-type(4) {
     margin-bottom: 20px;
@@ -133,5 +136,6 @@ footer {
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     font-size: 12px;
+    line-height: 18px;
     text-align: center;
 }
