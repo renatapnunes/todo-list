@@ -41,7 +41,11 @@ ol {
     margin-left: 20px;
 }
 li:hover {
-    font-size: 28px;
+    font-size: 25px;
+    cursor: default;
+}
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
 }
 #botoes {
     display: flex;
@@ -53,14 +57,8 @@ li:hover {
     margin-top: 50px;
     margin-left: 10px;
 }
-.botao {
-    padding: 5px 10px;
-    border-radius: 18px;
-    color: rgb(255, 255, 255);
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
+#botoes div:nth-of-type(1), div:nth-of-type(2), div:nth-of-type(3), div:nth-of-type(4) {
+    margin-bottom: 20px;
 }
 input {
     padding: 2px 12px;
@@ -68,7 +66,7 @@ input {
     border-radius: 30px;
     color: rgb(19, 7, 185);
     font-family: 'Ubuntu', sans-serif;
-    font-weight: bold;
+    font-weight: 400;
     line-height: 22px;
 }
 input:focus {
@@ -100,34 +98,60 @@ p {
     font-family: 5px;
     text-align: center;
 }
-#botoes div:nth-of-type(1), div:nth-of-type(2), div:nth-of-type(3), div:nth-of-type(4) {
-    margin-bottom: 20px;
+button {
+    padding: 5px 10px;
+    border-radius: 18px;
+    color: rgb(255, 255, 255);
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
 }
-.completed {
-    text-decoration: line-through solid rgb(0, 0, 0);
+button:hover {
+    padding: 6px 11px;
 }
 #criar-tarefa{
-    /* background-color: rgb(154, 225, 157); */
     background-color: rgb(126, 68, 130);
-    box-shadow: 2px 2px 5px rgb(100, 53, 104);
+    box-shadow: 3px 3px 5px rgb(100, 53, 104);
+    border: 1px solid rgb(126, 68, 130);
+}
+#criar-tarefa:active{
+    background-color: rgb(126, 68, 130);
+    box-shadow: 2px 2px 2px rgb(83, 42, 87);
     border: 1px solid rgb(126, 68, 130);
 }
 #mover-baixo, #mover-cima{
     background-color: rgb(126, 68, 130);
-    box-shadow: 2px 2px 5px rgb(100, 53, 104);
+    box-shadow: 3px 3px 5px rgb(100, 53, 104);
     border: 1px solid rgb(126, 68, 130);
     margin-right: 20px;
 }
+#mover-baixo:active, #mover-cima:active {
+    background-color: rgb(126, 68, 130);
+    box-shadow: 2px 2px 2px rgb(83, 42, 87);
+    border: 0px solid rgb(126, 68, 130);
+    margin-right: 20px;
+}
 #remover-finalizados, #remover-selecionado, #apaga-tudo{
-    /* background-color: rgb(154, 225, 157); */
     background-color: rgb(211, 68, 63);
-    box-shadow: 2px 2px 5px rgb(185, 7, 1);
+    box-shadow: 3px 3px 5px rgb(185, 7, 1);
+    border: 1px solid rgb(211, 68, 63);
+    margin-right: 20px;
+}
+#remover-finalizados:active, #remover-selecionado:active, #apaga-tudo:active{
+    background-color: rgb(211, 68, 63);
+    box-shadow: 2px 2px 2px rgb(168, 7, 1);
     border: 1px solid rgb(211, 68, 63);
     margin-right: 20px;
 }
 #salvar-tarefas{
     background-color: rgb(42, 156, 63);
-    box-shadow: 2px 2px 5px rgb(0, 104, 19);
+    box-shadow: 3px 3px 5px rgb(0, 104, 19);
+    border: 1px solid rgb(42, 156, 63);
+}
+#salvar-tarefas:active{
+    background-color: rgb(42, 156, 63);
+    box-shadow: 2px 2px 2px rgb(0, 87, 16);
     border: 1px solid rgb(42, 156, 63);
 }
 footer {

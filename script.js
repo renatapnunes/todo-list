@@ -3,12 +3,16 @@ let listaTarefas = document.getElementById('lista-tarefas');
 let botaoCriarTarefa = document.getElementById('criar-tarefa');
 botaoCriarTarefa.addEventListener('click', function () {
     let entrada = document.getElementById('texto-tarefa');
-    let elementoItemLista = document.createElement('li');
-    elementoItemLista.innerHTML = entrada.value;
-    elementoItemLista.style.backgroundColor = 'rgb(255, 255, 255)';
-    elementoItemLista.className = 'tarefa';
-    listaTarefas.appendChild(elementoItemLista);
-    entrada.value = '';
+    if (entrada.value !== '') {
+        let elementoItemLista = document.createElement('li');
+        elementoItemLista.innerHTML = entrada.value;
+        elementoItemLista.style.backgroundColor = 'rgb(255, 255, 255)';
+        elementoItemLista.className = 'tarefa';
+        listaTarefas.appendChild(elementoItemLista);
+        entrada.value = '';
+    } else {
+        alert('Insira uma tarefa válida antes de adiciná-la à lista');
+    }
 });
 
 // let arrayInfoTarefas = [];
