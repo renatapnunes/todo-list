@@ -1,7 +1,137 @@
 body {
-    background-color: rgb(99, 98, 98);
-    color: rgb(226, 226, 226);
+    width: auto;
+    height: auto;
+    background: linear-gradient(to left bottom, rgb(38, 93, 182), rgb(204, 82, 78));
+}
+#imagem-cerebro {
+    height: 550px;
+    position: absolute;
+    top: 200px;
+    right: 5px;
+}
+section {
+    min-height: 600px;
+    background-color: rgb(255, 255, 255);
+    padding: 40px 60px;
+    border-radius: 50px;
+    margin: 40px 120px 40px 120px;
+}
+header {
+    color: rgb(11, 28, 55);
+    font-family: 'Fredoka One', cursive;
+    font-size: 70px;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 1px rgb(188, 186, 214);
+}
+#conteiner {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+}
+#lista {
+    min-width: 300px;
+}
+ol {
+    color: rgb(19, 7, 185);
+    font-family: 'Pacifico', cursive;
+    font-size: 26px;
+    margin-left: 20px;
+}
+li:hover {
+    font-size: 28px;
+}
+#botoes {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+.botao {
+    padding: 5px 10px;
+    border-radius: 30px;
+    color: rgb(255, 255, 255);
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+}
+input {
+    padding: 2px 12px;
+    border: 1px solid rgb(126, 68, 130);
+    border-radius: 30px;
+    color: rgb(19, 7, 185);
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    line-height: 22px;
+}
+input:focus {
+    box-shadow: 2px 2px 4px rgb(248, 179, 176), -2px -2px 4px rgb(248, 179, 176);
+    outline: none;
+}
+::-webkit-input-placeholder {
+    color: rgb(128, 115, 129);
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    font-style: oblique;
+}
+.imagem-setas {
+    height: 15px;
+    padding: 2px;
+}
+p {
+    margin-top: 0px;
+    margin-bottom: 15px;
+    color: rgb(125, 85, 128);
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    font-style: oblique;
+}
+#funcionamento {
+    color: rgb(255, 255, 255);
+    font-family: 5px;
+}
+#botoes div:nth-of-type(1), div:nth-of-type(2), div:nth-of-type(3), div:nth-of-type(4) {
+    margin-bottom: 20px;
 }
 .completed {
     text-decoration: line-through solid rgb(0, 0, 0);
+}
+#criar-tarefa{
+    /* background-color: rgb(154, 225, 157); */
+    background-color: rgb(126, 68, 130);
+    box-shadow: 2px 2px 5px rgb(100, 53, 104);
+    border: 1px solid rgb(126, 68, 130);
+}
+#mover-baixo, #mover-cima{
+    background-color: rgb(126, 68, 130);
+    box-shadow: 2px 2px 5px rgb(100, 53, 104);
+    border: 1px solid rgb(126, 68, 130);
+    margin-right: 20px;
+}
+#remover-finalizados, #remover-selecionado, #apaga-tudo{
+    /* background-color: rgb(154, 225, 157); */
+    background-color: rgb(211, 68, 63);
+    box-shadow: 2px 2px 5px rgb(185, 7, 1);
+    border: 1px solid rgb(211, 68, 63);
+    margin-right: 20px;
+}
+#salvar-tarefas{
+    background-color: rgb(42, 156, 63);
+    box-shadow: 2px 2px 5px rgb(0, 104, 19);
+    border: 1px solid rgb(42, 156, 63);
+}
+footer {
+    padding-top: 80px;
+    color: rgb(126, 68, 130);
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    text-align: center;
 }

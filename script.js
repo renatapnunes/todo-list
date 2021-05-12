@@ -5,7 +5,7 @@ botaoCriarTarefa.addEventListener('click', function () {
     let entrada = document.getElementById('texto-tarefa');
     let elementoItemLista = document.createElement('li');
     elementoItemLista.innerHTML = entrada.value;
-    elementoItemLista.style.backgroundColor = 'rgb(99, 98, 98)';
+    elementoItemLista.style.backgroundColor = 'rgb(255, 255, 255)';
     elementoItemLista.className = 'tarefa';
     listaTarefas.appendChild(elementoItemLista);
     entrada.value = '';
@@ -82,7 +82,7 @@ botaoCriarTarefa.addEventListener('click', function () {
 listaTarefas.addEventListener('click', function (e) {
     let tarefas = document.getElementsByClassName('tarefa');
     for (let i = 0; i < tarefas.length; i += 1) {
-        tarefas[i].style.backgroundColor = 'rgb(99, 98, 98)';
+        tarefas[i].style.backgroundColor = 'rgb(255, 255, 255)';
     }
     if (e.target.className === 'tarefa' || e.target.className === 'tarefa completed') {
         e.target.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -184,7 +184,7 @@ window.onload = function () {
         for (let i = 0; i < arrayInfoSalva.length; i += 1) {
             let elementoItemLista = document.createElement('li');
             elementoItemLista.innerHTML = arrayInfoSalva[i].valor;
-            elementoItemLista.style.backgroundColor = 'rgb(99, 98, 98)';
+            elementoItemLista.style.backgroundColor = 'rgb(255, 255, 255)';
             elementoItemLista.className = arrayInfoSalva[i].classe;
             listaTarefas.appendChild(elementoItemLista);
         }
@@ -219,7 +219,7 @@ botaoMoverCima.addEventListener('click', function () {
                 console.log(objInfo);
                 tarefaSelecionada.innerText = objInfo.valorAnterior;
                 tarefaSelecionada.className = objInfo.classeAnterior;
-                tarefaSelecionada.style.backgroundColor = 'rgb(99, 98, 98)';
+                tarefaSelecionada.style.backgroundColor = 'rgb(255, 255, 255)';
                 anteriorTarefaSelecionada.innerText = objInfo.valorSelecionada;
                 anteriorTarefaSelecionada.className = objInfo.classeSelecionada;
                 anteriorTarefaSelecionada.style.backgroundColor = 'rgb(128,128,128)';
@@ -255,7 +255,7 @@ botaoMoverBaixo.addEventListener('click', function () {
                 console.log(objInfoMoverBaixo);
                 tarefaSelecionada.innerText = objInfoMoverBaixo.valorPosterior;
                 tarefaSelecionada.className = objInfoMoverBaixo.classePosterior;
-                tarefaSelecionada.style.backgroundColor = 'rgb(99, 98, 98)';
+                tarefaSelecionada.style.backgroundColor = 'rgb(255, 255, 255)';
                 posteriorTarefaSelecionada.innerText = objInfoMoverBaixo.valorSelecionada;
                 posteriorTarefaSelecionada.className = objInfoMoverBaixo.classeSelecionada;
                 posteriorTarefaSelecionada.style.backgroundColor = 'rgb(128,128,128)';
