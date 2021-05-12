@@ -13,7 +13,7 @@ botaoCriarTarefa.addEventListener('click', function () {
   if (entrada.value !== '') {
     let elementoItemLista = document.createElement('li');
     elementoItemLista.innerHTML = entrada.value;
-    elementoItemLista.style.backgroundColor = 'rgb(255,255,255)';
+    elementoItemLista.style.backgroundColor = 'rgb(255, 255, 255)';
     elementoItemLista.className = 'tarefa';
     listaTarefas.appendChild(elementoItemLista);
     entrada.value = '';
@@ -26,13 +26,13 @@ botaoCriarTarefa.addEventListener('click', function () {
 listaTarefas.addEventListener('click', function (e) {
   let tarefas = document.getElementsByClassName('tarefa');
   for (let i = 0; i < tarefas.length; i += 1) {
-    tarefas[i].style.backgroundColor = 'rgb(255,255,255)';
+    tarefas[i].style.backgroundColor = 'rgb(255, 255, 255)';
   }
   if (
     e.target.className === 'tarefa' ||
     e.target.className === 'tarefa completed'
   ) {
-    e.target.style.backgroundColor = 'rgb(128,128,128)';
+    e.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 });
 
@@ -85,7 +85,7 @@ window.onload = function () {
     for (let i = 0; i < arrayInfoSalva.length; i += 1) {
       let elementoItemLista = document.createElement('li');
       elementoItemLista.innerHTML = arrayInfoSalva[i].valor;
-      elementoItemLista.style.backgroundColor = 'rgb(255,255,255)';
+      elementoItemLista.style.backgroundColor = 'rgb(255, 255, 255)';
       elementoItemLista.className = arrayInfoSalva[i].classe;
       listaTarefas.appendChild(elementoItemLista);
     }
@@ -97,7 +97,7 @@ botaoApagarSelecionada.addEventListener('click', function () {
   let tarefas = document.querySelectorAll('.tarefa');
   for (let i = 0; i < tarefas.length; i += 1) {
     let corBg = tarefas[i].style.backgroundColor;
-    if (corBg === 'rgb(128,128,128)') {
+    if (corBg === 'rgb(128, 128, 128)') {
       listaTarefas.removeChild(tarefas[i]);
     }
   }
@@ -108,7 +108,7 @@ botaoMoverCima.addEventListener('click', function () {
   let tarefas = document.querySelectorAll('.tarefa');
   for (let i = 0; i < tarefas.length; i += 1) {
     let corBg = tarefas[i].style.backgroundColor;
-    if (corBg === 'rgb(128,128,128)') {
+    if (corBg === 'rgb(128, 128, 128)') {
       if (i !== 0) {
         let tarefaSelecionada = tarefas[i];
         let tarefaSubstituta = tarefaSelecionada.previousElementSibling;
@@ -126,7 +126,7 @@ botaoMoverBaixo.addEventListener('click', function () {
   for (let i = tarefas.length - 1; i >= 0; i -= 1) {
     let corBg = tarefas[i].style.backgroundColor;
     console.log(corBg);
-    if (corBg === 'rgb(128,128,128)') {
+    if (corBg === 'rgb(128, 128, 128)') {
       if (i !== tarefas.length - 1) {
         let tarefaSelecionada = tarefas[i];
         let tarefaSubstituta = tarefaSelecionada.nextElementSibling;
@@ -149,8 +149,8 @@ function moverTarefa(tarefaSelecionada, tarefaSubstituta) {
   };
   tarefaSelecionada.innerText = objInfo.valorSubstituta;
   tarefaSelecionada.className = objInfo.classeSubstituta;
-  tarefaSelecionada.style.backgroundColor = 'rgb(255,255,255)';
+  tarefaSelecionada.style.backgroundColor = 'rgb(255, 255, 255)';
   tarefaSubstituta.innerText = objInfo.valorSelecionada;
   tarefaSubstituta.className = objInfo.classeSelecionada;
-  tarefaSubstituta.style.backgroundColor = 'rgb(128,128,128)';
+  tarefaSubstituta.style.backgroundColor = 'rgb(128, 128, 128)';
 }
