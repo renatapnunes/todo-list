@@ -1,5 +1,6 @@
 let listaTarefas = document.getElementById('lista-tarefas');
 let botaoCriarTarefa = document.getElementById('criar-tarefa');
+let caixaEntrada = document.getElementById('texto-tarefa');
 let botaoApagarLista = document.getElementById('apaga-tudo');
 let botaoApagarCompletadas = document.getElementById('remover-finalizados');
 let botaoSalvar = document.getElementById('salvar-tarefas');
@@ -7,22 +8,17 @@ let botaoApagarSelecionada = document.getElementById('remover-selecionado');
 let botaoMoverCima = document.getElementById('mover-cima');
 let botaoMoverBaixo = document.getElementById('mover-baixo');
 
-// adicionar tarefa na lista
-botaoCriarTarefa.addEventListener('click', function () {
-  let entrada = document.getElementById('texto-tarefa');
-  if (entrada.value !== '') {
-    let elementoItemLista = document.createElement('li');
-    elementoItemLista.innerHTML = entrada.value;
-    elementoItemLista.style.backgroundColor = 'rgb(255, 255, 255)';
-    elementoItemLista.className = 'tarefa';
-    listaTarefas.appendChild(elementoItemLista);
-    entrada.value = '';
-  } else {
-    alert('Insira uma tarefa válida antes de adiciná-la à lista');
+// adiciona tarefa ao clicar no botão Adicionar
+botaoCriarTarefa.addEventListener('click', adicionarTarefa);
+
+// adiciona tarefa com Enter
+caixaEntrada.addEventListener('keyup', function (e) {
+  if (e.keyCode === 13) {
+    adicionarTarefa();
   }
 });
 
-// seleciona item
+// seleciona tarefa
 listaTarefas.addEventListener('click', function (e) {
   let tarefas = document.getElementsByClassName('tarefa');
   for (let i = 0; i < tarefas.length; i += 1) {
@@ -36,7 +32,7 @@ listaTarefas.addEventListener('click', function (e) {
   }
 });
 
-// tarefa completada
+// marca tarefa como completa
 listaTarefas.addEventListener('dblclick', function (e) {
   if (e.target.className === 'tarefa completed') {
     e.target.className = 'tarefa';
@@ -45,7 +41,7 @@ listaTarefas.addEventListener('dblclick', function (e) {
   }
 });
 
-// apagar lista
+// apaga lista
 botaoApagarLista.addEventListener('click', function () {
   let tarefas = document.querySelectorAll('.tarefa');
   for (let i = 0; i < tarefas.length; i += 1) {
@@ -53,7 +49,7 @@ botaoApagarLista.addEventListener('click', function () {
   }
 });
 
-// apagar tarefas completadas
+// apaga tarefas completas
 botaoApagarCompletadas.addEventListener('click', function () {
   let tarefasCompletadas = document.querySelectorAll('.completed');
   for (let i = 0; i < tarefasCompletadas.length; i += 1) {
@@ -61,7 +57,7 @@ botaoApagarCompletadas.addEventListener('click', function () {
   }
 });
 
-// salvar informacoes das tarefas
+// salva tarefas
 botaoSalvar.addEventListener('click', function () {
   let tarefas = document.querySelectorAll('.tarefa');
   let arrayInfoTarefas = [];
@@ -77,7 +73,7 @@ botaoSalvar.addEventListener('click', function () {
   localStorage.setItem('infoLista', JSON.stringify(arrayInfoTarefas));
 });
 
-// pegar informacoes salvas
+// recupera tarefas salvas
 window.onload = function () {
   if (localStorage.length !== 0) {
     let stringInfoSalva = localStorage.getItem('infoLista');
@@ -92,7 +88,7 @@ window.onload = function () {
   }
 };
 
-// apagar tarefa selecionada
+// apaga tarefa selecionada
 botaoApagarSelecionada.addEventListener('click', function () {
   let tarefas = document.querySelectorAll('.tarefa');
   for (let i = 0; i < tarefas.length; i += 1) {
@@ -103,7 +99,7 @@ botaoApagarSelecionada.addEventListener('click', function () {
   }
 });
 
-// mover tarefa para cima
+// move tarefa para cima
 botaoMoverCima.addEventListener('click', function () {
   let tarefas = document.querySelectorAll('.tarefa');
   for (let i = 0; i < tarefas.length; i += 1) {
@@ -120,7 +116,7 @@ botaoMoverCima.addEventListener('click', function () {
   }
 });
 
-// mover tarefa para baixo
+// move tarefa para baixo
 botaoMoverBaixo.addEventListener('click', function () {
   let tarefas = document.querySelectorAll('.tarefa');
   for (let i = tarefas.length - 1; i >= 0; i -= 1) {
@@ -137,7 +133,20 @@ botaoMoverBaixo.addEventListener('click', function () {
     }
   }
 });
-
+// funcao que adiciona tarefa na lista
+function adicionarTarefa() {
+  let entrada = document.getElementById('texto-tarefa');
+  if (entrada.value !== '') {
+    let elementoItemLista = document.createElement('li');
+    elementoItemLista.innerHTML = entrada.value;
+    elementoItemLista.style.backgroundColor = 'rgb(255, 255, 255)';
+    elementoItemLista.className = 'tarefa';
+    listaTarefas.appendChild(elementoItemLista);
+    entrada.value = '';
+  } else {
+    alert('Insira uma tarefa válida antes de adiciná-la à lista');
+  }
+}
 // funcao que move tarefa
 function moverTarefa(tarefaSelecionada, tarefaSubstituta) {
   let objInfo = {};

@@ -6,6 +6,10 @@ body {
   animation: backgroundAnimation 8s ease infinite;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 #imagem-cerebro {
   height: 350px;
   position: absolute;
